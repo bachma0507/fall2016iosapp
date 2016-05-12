@@ -1,9 +1,9 @@
 //
 //  ExtensionDelegate.h
-//  fall2016Watch Extension
+//  canada2016Watch Extension
 //
-//  Created by Barry on 5/11/16.
-//  Copyright © 2016 BICSI. All rights reserved.
+//  Created by Barry on 11/16/15.
+//  Copyright © 2015 BICSI. All rights reserved.
 //
 
 #import <WatchKit/WatchKit.h>

@@ -11,6 +11,7 @@
 @implementation confSchedDetailViewCell
 @synthesize sessionName;
 @synthesize sessionStatus;
+@synthesize sessionLocation;
 @synthesize sessionTime;
 @synthesize itscecs;
 
