@@ -42,7 +42,7 @@
 //{
 //    NSManagedObjectContext *context = nil;
 //    id delegate = [[UIApplication sharedApplication] delegate];
-//    
+//
 //    if ([delegate performSelector:@selector(managedObjectContext)])
 //    {
 //        context = [delegate managedObjectContext];
@@ -54,7 +54,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     
     
     
@@ -62,10 +62,10 @@
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButtonItem;
     
-    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
-    [tempImageView setFrame:self.myTableView.frame];
-    
-    self.myTableView.backgroundView = tempImageView;
+    //    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
+    //    [tempImageView setFrame:self.myTableView.frame];
+    //
+    //    self.myTableView.backgroundView = tempImageView;
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
                                         init];
@@ -76,6 +76,11 @@
     
     [self refreshTable];
     
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 
@@ -130,62 +135,62 @@
         
         NSLog(@"sessionDate is: %@", stringDate);
         
-            NSString *strPrevDate= stringDate;
-            NSString *strCurrDate = nil;
-            NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-            //Add the Similar Date data in An Array then add this array to Dictionary
-            //With date name as a Key. It helps to easily create section in table.
-            for(int i=0; i< [myResults count]; i++)
+        NSString *strPrevDate= stringDate;
+        NSString *strCurrDate = nil;
+        NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+        //Add the Similar Date data in An Array then add this array to Dictionary
+        //With date name as a Key. It helps to easily create section in table.
+        for(int i=0; i< [myResults count]; i++)
+        {
+            
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+            
+            NSDate *date = (NSDate*) [[myResults objectAtIndex:i] valueForKey:@"sessionDate"];
+            
+            NSString *stringDate2 = [dateFormatter stringFromDate:date];
+            
+            strCurrDate = stringDate2;
+            
+            if ([strCurrDate isEqualToString:strPrevDate])
             {
-        
-                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
                 
-                NSDate *date = (NSDate*) [[myResults objectAtIndex:i] valueForKey:@"sessionDate"];
-                
-                NSString *stringDate2 = [dateFormatter stringFromDate:date];
-                
-                strCurrDate = stringDate2;
-        
-                if ([strCurrDate isEqualToString:strPrevDate])
-                 {
-        
-                    [tempArray addObject:[myResults objectAtIndex:i]];
-                }
-                else
-                {
-                    [tempDict setValue:[tempArray copy] forKey:strPrevDate];
-        
-                    strPrevDate = strCurrDate;
-                    [tempArray removeAllObjects];
-                    [tempArray addObject:[myResults objectAtIndex:i]];
-                }
+                [tempArray addObject:[myResults objectAtIndex:i]];
             }
-            //Set the last date array in dictionary
-            [tempDict setValue:[tempArray copy] forKey:strPrevDate];
+            else
+            {
+                [tempDict setValue:[tempArray copy] forKey:strPrevDate];
+                
+                strPrevDate = strCurrDate;
+                [tempArray removeAllObjects];
+                [tempArray addObject:[myResults objectAtIndex:i]];
+            }
+        }
+        //Set the last date array in dictionary
+        [tempDict setValue:[tempArray copy] forKey:strPrevDate];
         
-            NSArray *tArray = [tempDict allKeys];
-            //Sort the array in ascending order
-            dateArray = [tArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        NSArray *tArray = [tempDict allKeys];
+        //Sort the array in ascending order
+        dateArray = [tArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         //NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO selector:@selector(localizedCompare:)];
         //dateArray = [tArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-
+        
         
         [self.myTableView reloadData];
     }
 }
 
-- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
-{
-    
-    if(indexPath.row % 2 == 0){
-        UIColor *altCellColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
-        cell.backgroundColor = altCellColor;
-    }
-    else{
-        cell.backgroundColor = [UIColor colorWithRed:116/255.0 green:165/255.0 blue:168/255.0 alpha:1.0];;
-    }
-}
+//- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
+//{
+//
+//    if(indexPath.row % 2 == 0){
+//        UIColor *altCellColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+//        cell.backgroundColor = altCellColor;
+//    }
+//    else{
+//        cell.backgroundColor = [UIColor colorWithRed:116/255.0 green:165/255.0 blue:168/255.0 alpha:1.0];;
+//    }
+//}
 
 
 - (void)didReceiveMemoryWarning
@@ -210,10 +215,10 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
-        if (tableView == self.myTableView)
-        {
-            return [dateArray count];
-        }
+    if (tableView == self.myTableView)
+    {
+        return [dateArray count];
+    }
     return 1;
 }
 
@@ -223,9 +228,11 @@
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     [header.textLabel setTextColor:[UIColor blackColor]];
     header.textLabel.textAlignment = NSTextAlignmentCenter;
+    header.textLabel.font = [UIFont boldSystemFontOfSize:12];
     
     // Set the background color of our header/footer.
-    header.contentView.backgroundColor = [UIColor colorWithRed:249/255.0 green:255/255.0 blue:235/255.0 alpha:1.0];;
+    //header.contentView.backgroundColor = [UIColor colorWithRed:249/255.0 green:255/255.0 blue:235/255.0 alpha:1.0];;
+    header.contentView.backgroundColor = [UIColor colorWithRed:214/255.0 green:219/255.0 blue:223/255.0 alpha:1.0];
     
     // You can also do this to set the background color of our header/footer,
     //    but the gradients/other effects will be retained.
@@ -234,7 +241,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 50.0f;
+    //return 50.0f;
+    return 30.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -276,7 +284,9 @@
     
     SessionsMainViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    cell.backgroundColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+    //cell.backgroundColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+    //cell.backgroundColor = [UIColor colorWithRed:32/255.0 green:115/255.0 blue:169/255.0 alpha:1.0];
+    cell.backgroundColor = [UIColor whiteColor];
     
     if (!cell)
     {
@@ -293,6 +303,7 @@
         
         NSManagedObject *object = [dateSection objectAtIndex:indexPath.row];
         cell.textLabel.text = [object valueForKey:@"sessionName"];
+        cell.location.text = [object valueForKey:@"location"];
         NSString * planner = [NSString stringWithFormat:@"%@", [object valueForKey:@"planner"]];
         
         if ([planner isEqualToString:@"Yes"]) {
@@ -323,19 +334,19 @@
         
         NSLog(@"Session Date is: %@", stringDate);
         
-//        NSDateFormatter *timeFormatter1 = [[NSDateFormatter alloc] init];
-//        [timeFormatter1 setDateFormat:@"hh:mm a"];
-//        
+        //        NSDateFormatter *timeFormatter1 = [[NSDateFormatter alloc] init];
+        //        [timeFormatter1 setDateFormat:@"hh:mm a"];
+        //
         NSDate *time1 = (NSDate*) [object valueForKey:@"startTime"];
-//        
-//        NSString *stringStartTime = [timeFormatter1 stringFromDate:time1];
-//        
-//        NSDateFormatter *timeFormatter2 = [[NSDateFormatter alloc] init];
-//        [timeFormatter2 setDateFormat:@"hh:mm a"];
-//        
+        //
+        //        NSString *stringStartTime = [timeFormatter1 stringFromDate:time1];
+        //
+        //        NSDateFormatter *timeFormatter2 = [[NSDateFormatter alloc] init];
+        //        [timeFormatter2 setDateFormat:@"hh:mm a"];
+        //
         NSDate *time2 = (NSDate*) [object valueForKey:@"endTime"];
-//        
-//        NSString *stringEndTime = [timeFormatter2 stringFromDate:time2];
+        //
+        //        NSString *stringEndTime = [timeFormatter2 stringFromDate:time2];
         
         [NSLocale autoupdatingCurrentLocale];
         NSLocale *theLocale = [NSLocale currentLocale];
@@ -359,11 +370,11 @@
         [edf setTimeStyle:NSDateFormatterShortStyle];
         
         NSString *stringEndTime = [edf stringFromDate:time2];
-
+        
         
         NSString *sessionTime = [[NSString alloc] initWithFormat:@"%@ - %@", stringStartTime,stringEndTime];
         cell.detailTextLabel.text = sessionTime;
-        cell.detailTextLabel.textColor = [UIColor whiteColor];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
         
         cell.textLabel.numberOfLines = 0;
         cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -422,7 +433,8 @@
         cell.detailTextLabel.text = sessionTime;
         //cell.detailTextLabel.font = [UIFont fontWithName:@"Arial" size:11.0];
         //cell.textLabel.font = [UIFont fontWithName:@"Arial-Bold" size:10.0];
-        cell.detailTextLabel.textColor = [UIColor whiteColor];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
+        cell.location.textColor = [UIColor colorWithRed:128/255.0 green:139/255.0 blue:150/255.0 alpha:1.0];
         //cell.textLabel.font = [UIFont systemFontOfSize:13.0];
         //cell.textLabel.textColor = [UIColor brownColor];
         
@@ -451,28 +463,27 @@
     
     NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
-        
-        UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
-                                            init];
-        
-        [refreshControl endRefreshing];
-        self.objects = myResults;
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
+                                        init];
+    
+    [refreshControl endRefreshing];
+    self.objects = myResults;
     [self.myTableView reloadData];
 }
 
 
-//- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
-//{
-//    
-//    if(indexPath.row % 2 == 0){
-//        UIColor *altCellColor = [UIColor colorWithRed:246/255.0 green:235/255.0 blue:253/255.0 alpha:1.0];
-//        cell.backgroundColor = altCellColor;
-//    }
-//    else{
-//        cell.backgroundColor = [UIColor whiteColor];
-//    }
-//
-//}
+- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
+{
+    
+    if(indexPath.row % 2 == 0){
+        UIColor *altCellColor = [UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0];
+        cell.backgroundColor = altCellColor;
+    }
+    else{
+        cell.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];;
+    }
+}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

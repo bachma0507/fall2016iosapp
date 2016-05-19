@@ -13,6 +13,7 @@
 #import <CoreData/CoreData.h>
 #import "StartPageViewController.h"
 #import "SVWebViewController.h"
+#import "ComMeetingsViewCell.h"
 
 @interface ComMeetingsMainViewController ()
 
@@ -25,6 +26,7 @@
 @synthesize objects;
 @synthesize tempDict;
 @synthesize dateArray;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,7 +41,7 @@
 //{
 //    NSManagedObjectContext *context = nil;
 //    id delegate = [[UIApplication sharedApplication] delegate];
-//    
+//
 //    if ([delegate performSelector:@selector(managedObjectContext)])
 //    {
 //        context = [delegate managedObjectContext];
@@ -51,17 +53,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     
     
     
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButtonItem;
     
-    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
-    [tempImageView setFrame:self.myTableView.frame];
-    
-    self.myTableView.backgroundView = tempImageView;
+    //    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
+    //    [tempImageView setFrame:self.myTableView.frame];
+    //
+    //    self.myTableView.backgroundView = tempImageView;
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
                                         init];
@@ -74,6 +76,11 @@
     
     [self refreshTable];
     
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 
@@ -163,13 +170,15 @@
 {
     static NSString *simpleTableIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    ComMeetingsViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
-    cell.backgroundColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+    //cell.backgroundColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+    cell.backgroundColor = [UIColor whiteColor];
     
     if (!cell)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
+        cell = [[ComMeetingsViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
@@ -180,6 +189,11 @@
         
         NSManagedObject *object = [dateSection objectAtIndex:indexPath.row];
         cell.textLabel.text = [object valueForKey:@"sessionName"];
+        cell.location.text = [object valueForKey:@"location"];
+        cell.location.textColor = [UIColor blueColor];
+        
+        
+        
         
         NSString * planner = [NSString stringWithFormat:@"%@", [object valueForKey:@"planner"]];
         
@@ -189,6 +203,7 @@
         }
         else{
             
+            //cell.textLabel.textColor = [UIColor colorWithRed:30/255.0 green:37/255.0 blue:89/255.0 alpha:1.0];
             cell.textLabel.textColor = [UIColor colorWithRed:30/255.0 green:37/255.0 blue:89/255.0 alpha:1.0];
         }
         
@@ -219,12 +234,13 @@
         
         NSString *sessionTime = [[NSString alloc] initWithFormat:@"%@ - %@", stringStartTime,stringEndTime];
         cell.detailTextLabel.text = sessionTime;
-        cell.detailTextLabel.textColor = [UIColor whiteColor];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
         //cell.detailTextLabel.font = [UIFont fontWithName:@"Arial" size:10.0];
         //cell.textLabel.font = [UIFont fontWithName:@"Arial-Bold" size:10.0];
         //cell.textLabel.textColor = [UIColor brownColor];
         //cell.textLabel.font = [UIFont systemFontOfSize:11.0];
         //cell.textLabel.textColor = [UIColor brownColor];
+        
         
         cell.textLabel.numberOfLines = 0;
         cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -234,6 +250,8 @@
     {
         NSManagedObject *object = [self.results objectAtIndex:indexPath.row];
         cell.textLabel.text = [object valueForKey:@"sessionName"];
+        cell.location.text = [object valueForKey:@"location"];
+        cell.location.textColor = [UIColor blueColor];
         
         NSString * planner = [NSString stringWithFormat:@"%@", [object valueForKey:@"planner"]];
         
@@ -272,7 +290,7 @@
         
         NSString *sessionTime = [[NSString alloc] initWithFormat:@"%@ - %@", stringStartTime,stringEndTime];
         cell.detailTextLabel.text = sessionTime;
-        cell.detailTextLabel.textColor = [UIColor whiteColor];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
         //cell.detailTextLabel.font = [UIFont fontWithName:@"Arial" size:11.0];
         //cell.textLabel.font = [UIFont fontWithName:@"Arial-Bold" size:10.0];
         //cell.textLabel.textColor = [UIColor brownColor];
@@ -376,9 +394,31 @@
         
         NSArray *tArray = [tempDict allKeys];
         //Sort the array in ascending order
-        dateArray = [tArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        //NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO selector:@selector(localizedCompare:)];
-        //dateArray = [tArray sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+        
+        NSMutableArray *arrDate = [[NSMutableArray alloc]init];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateStyle:NSDateFormatterMediumStyle];
+        for (int i = 0; i<tArray.count; i++) {
+            [arrDate addObject:[dateFormat dateFromString:tArray[i]]];
+            NSLog(@"%d", i);
+        }
+        
+        
+        NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"" ascending:YES];
+        NSArray * newDateArray = [arrDate sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+        
+        NSMutableArray * newStringArray = [[NSMutableArray alloc]init];
+        NSDateFormatter *stringFormat = [[NSDateFormatter alloc] init];
+        [stringFormat setDateStyle:NSDateFormatterMediumStyle];
+        for (int i = 0; i<newDateArray.count; i++){
+            
+            [newStringArray addObject:[stringFormat stringFromDate:newDateArray[i]]];
+        }
+        
+        dateArray = newStringArray;
+        
+        //NSLog(@"PRINT ARRAY %@", dateArray);
+        
         
         
         [self.myTableView reloadData];
@@ -389,11 +429,11 @@
 {
     
     if(indexPath.row % 2 == 0){
-        UIColor *altCellColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+        UIColor *altCellColor = [UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0];
         cell.backgroundColor = altCellColor;
     }
     else{
-        cell.backgroundColor = [UIColor colorWithRed:116/255.0 green:165/255.0 blue:168/255.0 alpha:1.0];;
+        cell.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];;
     }
 }
 
@@ -419,12 +459,12 @@
     NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
     
-        UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
-                                            init];
-        
-        [refreshControl endRefreshing];
-        self.objects = myResults;
-
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
+                                        init];
+    
+    [refreshControl endRefreshing];
+    self.objects = myResults;
+    
     [self.myTableView reloadData];
     
 }
@@ -447,7 +487,7 @@
 
 //- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
 //{
-//    
+//
 //    if(indexPath.row % 2 == 0){
 //        //UIColor *altCellColor = [UIColor colorWithRed:235/255.0 green:240/255.0 blue:233/255.0 alpha:1.0];
 //        UIColor *altCellColor = [UIColor colorWithRed:246/255.0 green:235/255.0 blue:253/255.0 alpha:1.0];

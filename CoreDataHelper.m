@@ -6,14 +6,6 @@
 //  Copyright © 2015 BICSI. All rights reserved.
 //
 
-//
-//  CoreDataHelper.m
-//  Winter2016IOSApp
-//
-//  Created by Barry on 11/14/15.
-//  Copyright © 2015 BICSI. All rights reserved.
-//
-
 #import "CoreDataHelper.h"
 
 @implementation CoreDataHelper
@@ -349,7 +341,7 @@ NSString *storeFilename = @"group.org.bicsi.fall2016appnew";
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
 //
 //
-//        NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-CANADA-ON-0516"];
+//        NSURL *url = [NSURL URLWithString:@"https://webservice.bicsi.org/json/reply/MobSession?SessionAltCd=CN-FALL-TX-0916"];
 //
 //
 //

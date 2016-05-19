@@ -44,23 +44,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     
     
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButtonItem;
     
-    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
-    [tempImageView setFrame:self.tableView.frame];
+    //    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
+    //    [tempImageView setFrame:self.tableView.frame];
+    //
+    //    self.tableView.backgroundView = tempImageView;
     
-    self.tableView.backgroundView = tempImageView;
-    
-//    dispatch_async(kBgQueue, ^{
-//        NSData* data = [NSData dataWithContentsOfURL:
-//                        getDataURL];
-//        [self performSelectorOnMainThread:@selector(fetchedData:)
-//                               withObject:data waitUntilDone:YES];
-//    });
+    //    dispatch_async(kBgQueue, ^{
+    //        NSData* data = [NSData dataWithContentsOfURL:
+    //                        getDataURL];
+    //        [self performSelectorOnMainThread:@selector(fetchedData:)
+    //                               withObject:data waitUntilDone:YES];
+    //    });
     
     
     
@@ -76,6 +76,11 @@
     [self refreshTable];
     
     
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 -(void)refreshTable{
@@ -127,14 +132,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
+    
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
+    
     // Return the number of rows in the section.
     return self.objects.count;
 }
@@ -172,65 +177,77 @@
     cell.sessionTime.text = [object valueForKey:@"sessionTime"];
     cell.sessionTime.font = [UIFont fontWithName:@"Arial" size:12.0];
     
-//    cell.sessionName.userInteractionEnabled = YES;
-//    UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openUrl:)];
-//    [cell.sessionName addGestureRecognizer:gr];
-//    gr.numberOfTapsRequired = 1;
-//    gr.cancelsTouchesInView = NO;
-//    [self.view addSubview:cell.sessionName];
+    //    cell.sessionName.userInteractionEnabled = YES;
+    //    UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openUrl:)];
+    //    [cell.sessionName addGestureRecognizer:gr];
+    //    gr.numberOfTapsRequired = 1;
+    //    gr.cancelsTouchesInView = NO;
+    //    [self.view addSubview:cell.sessionName];
     
     return cell;
+}
+
+- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
+{
+    
+    if(indexPath.row % 2 == 0){
+        UIColor *altCellColor = [UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0];
+        cell.backgroundColor = altCellColor;
+    }
+    else{
+        cell.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];;
+    }
 }
 
 //- (void)openUrl:(id)sender
 //{
 //    UIGestureRecognizer *rec = (UIGestureRecognizer *)sender;
-//    
+//
 //    id hitLabel = [self.view hitTest:[rec locationInView:self.view] withEvent:UIEventTypeTouches];
-//    
+//
 //    if ([hitLabel isKindOfClass:[UILabel class]]) {
 //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:((UILabel *)hitLabel).text]];
 //    }
 //}
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 #pragma mark - Table view delegate
 

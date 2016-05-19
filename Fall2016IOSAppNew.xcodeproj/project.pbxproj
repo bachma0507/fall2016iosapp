@@ -107,6 +107,7 @@
 		4C338DA71CE3C1CB00C9C64A /* ScheduleTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C338DA31CE3C1CB00C9C64A /* ScheduleTableRow.m */; };
 		4C338DAA1CE3C1F100C9C64A /* ExtensionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C338DA91CE3C1F100C9C64A /* ExtensionDelegate.m */; };
 		4C338DAB1CE3C5DC00C9C64A /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C58E0201BF7E8DA003D3593 /* CoreDataHelper.m */; };
+		4C338DAE1CE4FBF100C9C64A /* ComMeetingsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C338DAD1CE4FBF100C9C64A /* ComMeetingsViewCell.m */; };
 		4C36C697192F766F0018AB39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C36C696192F766F0018AB39 /* Images.xcassets */; };
 		4C384F3817A46009003C9063 /* ExhibitorNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C384F3717A46009003C9063 /* ExhibitorNotesViewController.m */; };
 		4C3A0CF6177C6C1300DA1D7E /* ExamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C3A0CF5177C6C1300DA1D7E /* ExamsViewController.m */; };
@@ -805,6 +806,8 @@
 		4C338DA31CE3C1CB00C9C64A /* ScheduleTableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableRow.m; sourceTree = "<group>"; };
 		4C338DA81CE3C1F100C9C64A /* ExtensionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtensionDelegate.h; sourceTree = "<group>"; };
 		4C338DA91CE3C1F100C9C64A /* ExtensionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtensionDelegate.m; sourceTree = "<group>"; };
+		4C338DAC1CE4FBF100C9C64A /* ComMeetingsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComMeetingsViewCell.h; sourceTree = "<group>"; };
+		4C338DAD1CE4FBF100C9C64A /* ComMeetingsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComMeetingsViewCell.m; sourceTree = "<group>"; };
 		4C36C696192F766F0018AB39 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C384F3617A46008003C9063 /* ExhibitorNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorNotesViewController.h; sourceTree = "<group>"; };
 		4C384F3717A46009003C9063 /* ExhibitorNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorNotesViewController.m; sourceTree = "<group>"; };
@@ -3011,6 +3014,8 @@
 		4CCB78EA1843B90300D9D1C6 /* CommitteeMeetings */ = {
 			isa = PBXGroup;
 			children = (
+				4C338DAC1CE4FBF100C9C64A /* ComMeetingsViewCell.h */,
+				4C338DAD1CE4FBF100C9C64A /* ComMeetingsViewCell.m */,
 				4C894E3818AFE6E400001623 /* ComMeetingsMainViewController.h */,
 				4C894E3918AFE6E400001623 /* ComMeetingsMainViewController.m */,
 			);
@@ -3752,6 +3757,7 @@
 				4C06D6DF176A2FF300B6E24D /* StartPageViewController.m in Sources */,
 				4C06D71B176A407B00B6E24D /* ConferenceScheduleViewController.m in Sources */,
 				4CBE72A4198C057D0090DA6E /* Speakers6.m in Sources */,
+				4C338DAE1CE4FBF100C9C64A /* ComMeetingsViewCell.m in Sources */,
 				4CBE729E198C05600090DA6E /* Speakers4.m in Sources */,
 				4C4875A2176CEE8700059E21 /* SpeakersViewController.m in Sources */,
 				4CB2EFC71A3F94BF0066979B /* GGCustomContainerViewController.m in Sources */,

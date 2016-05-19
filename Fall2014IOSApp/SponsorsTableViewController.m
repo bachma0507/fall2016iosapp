@@ -52,39 +52,39 @@
     [super viewDidLoad];
     
     
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButtonItem;
     
-    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
-    [tempImageView setFrame:self.tableView.frame];
+    //    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
+    //    [tempImageView setFrame:self.tableView.frame];
+    //
+    //    self.tableView.backgroundView = tempImageView;
     
-    self.tableView.backgroundView = tempImageView;
+    //        HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    //        HUD.labelText = @"Loading data...";
+    //        //HUD.detailsLabelText = @"Just relax";
+    //        HUD.mode = MBProgressHUDAnimationFade;
+    //        [self.view addSubview:HUD];
+    //        [HUD showWhileExecuting:@selector(waitForTwoSeconds) onTarget:self withObject:nil animated:YES];
     
-//        HUD = [[MBProgressHUD alloc] initWithView:self.view];
-//        HUD.labelText = @"Loading data...";
-//        //HUD.detailsLabelText = @"Just relax";
-//        HUD.mode = MBProgressHUDAnimationFade;
-//        [self.view addSubview:HUD];
-//        [HUD showWhileExecuting:@selector(waitForTwoSeconds) onTarget:self withObject:nil animated:YES];
+    //    dispatch_async(kBgQueue, ^{
+    //        NSData* data = [NSData dataWithContentsOfURL:
+    //                        getDataURL];
+    //        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
+    //    });
     
-//    dispatch_async(kBgQueue, ^{
-//        NSData* data = [NSData dataWithContentsOfURL:
-//                        getDataURL];
-//        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
-//    });
     
-
     
-//    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-//    [self.view addSubview:HUD];
-//    [HUD show:YES];
+    //    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    //    [self.view addSubview:HUD];
+    //    [HUD show:YES];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
                                         init];
@@ -96,8 +96,13 @@
     
     
     [self refreshTable];
-
     
+    
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 //- (void)waitForTwoSeconds {
@@ -154,11 +159,11 @@
 {
     
     if(indexPath.row % 2 == 0){
-        UIColor *altCellColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+        UIColor *altCellColor = [UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0];
         cell.backgroundColor = altCellColor;
     }
     else{
-        cell.backgroundColor = [UIColor colorWithRed:116/255.0 green:165/255.0 blue:168/255.0 alpha:1.0];;
+        cell.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];;
     }
 }
 
@@ -167,14 +172,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
+    
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
+    
     // Return the number of rows in the section.
     return self.objects.count;
 }
@@ -186,7 +191,8 @@
     
     SponsorsViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    cell.backgroundColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+    //cell.backgroundColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+    cell.backgroundColor = [UIColor whiteColor];
     
     if (cell == nil) {
         cell = [[SponsorsViewCell alloc]
@@ -207,30 +213,32 @@
     cell.sponsorName.text = [object valueForKey:@"sponsorName"];
     cell.sponsorName.font = [UIFont fontWithName:@"Arial" size:13.0];
     cell.sponsorName.textColor = [UIColor colorWithRed:30/255.0 green:37/255.0 blue:89/255.0 alpha:1.0];
+    //cell.sponsorName.textColor = [UIColor blackColor];
     
     cell.sponsorLevel.text = [object valueForKey:@"sponsorLevel"];
     cell.sponsorLevel.font = [UIFont fontWithName:@"Arial" size:12.0];
-    cell.sponsorLevel.textColor = [UIColor whiteColor];
+    cell.sponsorLevel.textColor = [UIColor blackColor];
     
     cell.sponsorSpecial.text = [object valueForKey:@"sponsorSpecial"];
     cell.sponsorSpecial.font = [UIFont fontWithName:@"Arial" size:8.0];
+    cell.sponsorSpecial.textColor = [UIColor brownColor];
     
     cell.boothNumber.text = [object valueForKey:@"boothNumber"];
     cell.boothNumber.font = [UIFont fontWithName:@"Arial" size:11.0];
     cell.boothNumber.textColor = [UIColor whiteColor];
     
-
-
     
-//        cell.sponsorName.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openUrl:)];
-//        [cell.sponsorName addGestureRecognizer:gr];
-//        gr.numberOfTapsRequired = 1;
-//        gr.cancelsTouchesInView = NO;
-//        [self.view addSubview:cell.sponsorName];
+    
+    
+    //        cell.sponsorName.userInteractionEnabled = YES;
+    //        UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openUrl:)];
+    //        [cell.sponsorName addGestureRecognizer:gr];
+    //        gr.numberOfTapsRequired = 1;
+    //        gr.cancelsTouchesInView = NO;
+    //        [self.view addSubview:cell.sponsorName];
     
     return cell;
-
+    
 }
 
 //- (void) openUrl: (UITapGestureRecognizer *) gr {
@@ -250,43 +258,43 @@
 
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 #pragma mark - Table view delegate
 

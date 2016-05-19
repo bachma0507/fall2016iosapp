@@ -49,7 +49,7 @@ extern int iNotificationCounter;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     // Wipe out old user defaults
     
     
@@ -59,10 +59,10 @@ extern int iNotificationCounter;
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     
-    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
-    [tempImageView setFrame:self.tableView.frame];
-    
-    self.tableView.backgroundView = tempImageView;
+    //    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
+    //    [tempImageView setFrame:self.tableView.frame];
+    //
+    //    self.tableView.backgroundView = tempImageView;
     
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"objectIDArray"]){
@@ -72,33 +72,39 @@ extern int iNotificationCounter;
     
     // Simple way to create a user or log in the existing user
     // For your app, you will probably want to present your own login screen
-//    PFUser *currentUser = [PFUser currentUser];
-//    
-//    if (!currentUser) {
-//        // Dummy username and password
-//        PFUser *user = [PFUser user];
-//        user.username = @"Matt";
-//        user.password = @"password";
-//        user.email = @"Matt@example.com";
-//        
-//        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//            if (error) {
-//                // Assume the error is because the user already existed.
-//                [PFUser logInWithUsername:@"Matt" password:@"password"];
-//            }
-//        }];
-//    }
-
-//    [PFAnonymousUtils logInWithBlock:^(PFUser *user, NSError *error) {
-//        if (error) {
-//            NSLog(@"Anonymous login failed.");
-//        } else {
-//            NSLog(@"Anonymous user logged in.");
-//        }
-//    }];
+    //    PFUser *currentUser = [PFUser currentUser];
+    //
+    //    if (!currentUser) {
+    //        // Dummy username and password
+    //        PFUser *user = [PFUser user];
+    //        user.username = @"Matt";
+    //        user.password = @"password";
+    //        user.email = @"Matt@example.com";
+    //
+    //        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    //            if (error) {
+    //                // Assume the error is because the user already existed.
+    //                [PFUser logInWithUsername:@"Matt" password:@"password"];
+    //            }
+    //        }];
+    //    }
+    
+    //    [PFAnonymousUtils logInWithBlock:^(PFUser *user, NSError *error) {
+    //        if (error) {
+    //            NSLog(@"Anonymous login failed.");
+    //        } else {
+    //            NSLog(@"Anonymous user logged in.");
+    //        }
+    //    }];
     
     
 }
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -139,16 +145,16 @@ extern int iNotificationCounter;
     cell.textLabel.numberOfLines = 4;
     
     
-//    NSDateFormatter *timeFormatter1 = [[NSDateFormatter alloc] init];
-//    [timeFormatter1 setDateFormat:@"MMM dd yyyy, hh:mm"];
-//    NSDate * cDate = [object objectForKey:@"createdAt"];
-//    NSString *mycDate = [timeFormatter1 stringFromDate:cDate];
-//    
-//    NSLog(@"PF_ALERTS_CREATEDAT is: %@", mycDate);
-//    
-//    cell.detailTextLabel.text = mycDate;
-//    cell.detailTextLabel.font = [UIFont systemFontOfSize:10.0];
-   
+    //    NSDateFormatter *timeFormatter1 = [[NSDateFormatter alloc] init];
+    //    [timeFormatter1 setDateFormat:@"MMM dd yyyy, hh:mm"];
+    //    NSDate * cDate = [object objectForKey:@"createdAt"];
+    //    NSString *mycDate = [timeFormatter1 stringFromDate:cDate];
+    //
+    //    NSLog(@"PF_ALERTS_CREATEDAT is: %@", mycDate);
+    //
+    //    cell.detailTextLabel.text = mycDate;
+    //    cell.detailTextLabel.font = [UIFont systemFontOfSize:10.0];
+    
     
     //NSLog(@"UITableView method is called");
     

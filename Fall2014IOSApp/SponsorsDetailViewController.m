@@ -37,7 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButtonItem;
@@ -66,6 +66,12 @@
     //speakerWebsite.text = speakers.speakerWebsite;
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -75,12 +81,12 @@
 - (IBAction)buttonPressed:(id)sender {
     
     NSString * myURL = [NSString stringWithFormat:@"%@", sponsors.sponsorWebsite];
-//    NSURL *url = [NSURL URLWithString:myURL];
-//	[[UIApplication sharedApplication] openURL:url];
+    //    NSURL *url = [NSURL URLWithString:myURL];
+    //	[[UIApplication sharedApplication] openURL:url];
     NSURL *URL = [NSURL URLWithString:myURL];
-	SVWebViewController *webViewController = [[SVWebViewController alloc] initWithURL:URL];
-	[self.navigationController pushViewController:webViewController animated:YES];
-
+    SVWebViewController *webViewController = [[SVWebViewController alloc] initWithURL:URL];
+    [self.navigationController pushViewController:webViewController animated:YES];
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -96,7 +102,7 @@
         
         NSLog(@"Booth Label is %@", self.boothNumber);
     }
-
+    
     
     
 }
