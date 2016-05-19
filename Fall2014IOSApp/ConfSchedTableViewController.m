@@ -41,27 +41,27 @@
     [super viewDidLoad];
     
     /*NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setLocale:[NSLocale currentLocale]];
-    [formatter setDateStyle:NSDateFormatterNoStyle];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    NSString *dateString = [formatter stringFromDate:[NSDate date]];
-    NSRange amRange = [dateString rangeOfString:[formatter AMSymbol]];
-    NSRange pmRange = [dateString rangeOfString:[formatter PMSymbol]];
-    self.is24h = (amRange.location == NSNotFound && pmRange.location == NSNotFound);
-    //[formatter release];
-    NSLog(@"%@\n",(self.is24h ? @"YES" : @"NO"));
+     [formatter setLocale:[NSLocale currentLocale]];
+     [formatter setDateStyle:NSDateFormatterNoStyle];
+     [formatter setTimeStyle:NSDateFormatterShortStyle];
+     NSString *dateString = [formatter stringFromDate:[NSDate date]];
+     NSRange amRange = [dateString rangeOfString:[formatter AMSymbol]];
+     NSRange pmRange = [dateString rangeOfString:[formatter PMSymbol]];
+     self.is24h = (amRange.location == NSNotFound && pmRange.location == NSNotFound);
+     //[formatter release];
+     NSLog(@"%@\n",(self.is24h ? @"YES" : @"NO"));
+     
+     if (self.is24h) {
+     NSString *message = @"Your device is set to 24 hour mode. Please set it to 12 hour mode to view the session times and restart the app.";
+     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Notification"
+     message:message
+     delegate:self
+     cancelButtonTitle:@"Settings"
+     otherButtonTitles:nil,nil];
+     alertView.tag = 0;
+     [alertView show];
+     }*/
     
-    if (self.is24h) {
-        NSString *message = @"Your device is set to 24 hour mode. Please set it to 12 hour mode to view the session times and restart the app.";
-        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Notification"
-                                                           message:message
-                                                          delegate:self
-                                                 cancelButtonTitle:@"Settings"
-                                                 otherButtonTitles:nil,nil];
-        alertView.tag = 0;
-        [alertView show];
-    }*/
-
     
     
     
@@ -71,12 +71,12 @@
     
     
     
-    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
-    [tempImageView setFrame:self.tableView.frame];
+    //    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
+    //    [tempImageView setFrame:self.tableView.frame];
+    //
+    //    self.tableView.backgroundView = tempImageView;
     
-    self.tableView.backgroundView = tempImageView;
-   
-
+    
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
                                         init];
     [refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
@@ -87,15 +87,18 @@
     
     
     [self refreshTable];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -118,6 +121,8 @@
     [fetchRequest setSortDescriptors:sortDescriptors];
     
     NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
+    
+    NSLog(@"Schedule myResults count: %lu", (unsigned long)myResults.count);
     
     if (!myResults || !myResults.count) {
         NSString *message = @"Either there is no data to display or an error updating data has occurred. Please go back to the Home screen and press the Update Data button at the bottom of the screen. If this error occurs after pressing the Update Data Button, then there is no data to display.";
@@ -144,14 +149,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//#warning Potentially incomplete method implementation.
+    //#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//#warning Incomplete method implementation.
+    //#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return self.objects.count;
 }
@@ -168,7 +173,7 @@
 
 //- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
 //{
-//    
+//
 //    if(indexPath.row % 2 == 0){
 //        //UIColor *altCellColor = [UIColor colorWithRed:235/255.0 green:240/255.0 blue:233/255.0 alpha:1.0];
 //        UIColor *altCellColor = [UIColor colorWithRed:246/255.0 green:235/255.0 blue:253/255.0 alpha:1.0];
@@ -198,12 +203,12 @@
     cell.detailTextLabel.text = [object valueForKey:@"date"];
     
     cell.textLabel.font = [UIFont fontWithName:@"Arial-Bold" size:15.0];
+    //cell.textLabel.textColor = [UIColor colorWithRed:30/255.0 green:37/255.0 blue:89/255.0 alpha:1.0];
     cell.textLabel.textColor = [UIColor colorWithRed:30/255.0 green:37/255.0 blue:89/255.0 alpha:1.0];
-    
     cell.detailTextLabel.font = [UIFont fontWithName:@"Arial" size:13.0];
-    cell.detailTextLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.textColor = [UIColor blackColor];
     
-    cell.backgroundColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+    //cell.backgroundColor = [UIColor colorWithRed:32/255.0 green:115/255.0 blue:169/255.0 alpha:1.0];
     
     // Configure the cell...
     
@@ -227,53 +232,53 @@
 {
     
     if(indexPath.row % 2 == 0){
-        UIColor *altCellColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+        UIColor *altCellColor = [UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0];
         cell.backgroundColor = altCellColor;
     }
     else{
-        cell.backgroundColor = [UIColor colorWithRed:116/255.0 green:165/255.0 blue:168/255.0 alpha:1.0];;
+        cell.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];;
     }
 }
 
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 #pragma mark - Table view delegate
 

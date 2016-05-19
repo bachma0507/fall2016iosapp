@@ -46,25 +46,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     
     
     
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButtonItem;
     
-    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
-    [tempImageView setFrame:self.myTableView.frame];
+    //    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
+    //    [tempImageView setFrame:self.myTableView.frame];
+    //
+    //    self.myTableView.backgroundView = tempImageView;
     
-    self.myTableView.backgroundView = tempImageView;
     
-
-//    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-//    HUD.labelText = @"Loading data...";
-//    //HUD.detailsLabelText = @"Just relax";
-//    HUD.mode = MBProgressHUDAnimationFade;
-//    [self.view addSubview:HUD];
-//    [HUD showWhileExecuting:@selector(waitForTwoSeconds) onTarget:self withObject:nil animated:YES];
+    //    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    //    HUD.labelText = @"Loading data...";
+    //    //HUD.detailsLabelText = @"Just relax";
+    //    HUD.mode = MBProgressHUDAnimationFade;
+    //    [self.view addSubview:HUD];
+    //    [HUD showWhileExecuting:@selector(waitForTwoSeconds) onTarget:self withObject:nil animated:YES];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
                                         init];
@@ -80,6 +80,11 @@
     
     //[self.myTableView reloadData];
     
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 //- (void)waitForTwoSeconds {
@@ -111,17 +116,17 @@
 }
 
 
-//- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
-//{
-//    
-//    if(indexPath.row % 2 == 0){
-//        UIColor *altCellColor = [UIColor colorWithRed:246/255.0 green:235/255.0 blue:253/255.0 alpha:1.0];
-//        cell.backgroundColor = altCellColor;
-//    }
-//    else{
-//        cell.backgroundColor = [UIColor whiteColor];
-//    }
-//}
+- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
+{
+    
+    if(indexPath.row % 2 == 0){
+        UIColor *altCellColor = [UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0];
+        cell.backgroundColor = altCellColor;
+    }
+    else{
+        cell.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];;
+    }
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -153,10 +158,11 @@
     static NSString *CellIdentifier = @"ExhibitorsCell";
     
     
-     ExhibitorViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    ExhibitorViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     //cell.backgroundColor = [UIColor colorWithRed:16/255.0 green:29/255.0 blue:60/255.0 alpha:1.0];
-    cell.backgroundColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+    //cell.backgroundColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+    cell.backgroundColor = [UIColor whiteColor];
     
     if (!cell) {
         cell = [[ExhibitorViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -166,11 +172,11 @@
     //exhibitors * myexhibitors = nil;
     
     if (tableView == self.myTableView){
-    NSManagedObject *object = [self.objects objectAtIndex:indexPath.row];
-    //myexhibitors = [exhibitorsArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [object valueForKey:@"name"];
-    //cell.textLabel.font = [UIFont fontWithName:@"Arial" size:15.0];
-    //cell.textLabel.textColor = [UIColor colorWithRed:152/255.0 green:142/255.0 blue:79/255.0 alpha:1.0];
+        NSManagedObject *object = [self.objects objectAtIndex:indexPath.row];
+        //myexhibitors = [exhibitorsArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = [object valueForKey:@"name"];
+        //cell.textLabel.font = [UIFont fontWithName:@"Arial" size:15.0];
+        //cell.textLabel.textColor = [UIColor colorWithRed:152/255.0 green:142/255.0 blue:79/255.0 alpha:1.0];
         NSString * fav = [NSString stringWithFormat:@"%@", [object valueForKey:@"fav"]];
         //NSString * favName = [NSString stringWithFormat:@"%@", [object valueForKey:@"name"]];
         
@@ -183,26 +189,26 @@
             [cell.starUnSel setImage:myImage];
         }
         else{
-        
-        cell.textLabel.textColor = [UIColor colorWithRed:30/255.0 green:37/255.0 blue:89/255.0 alpha:1.0];
+            
+            cell.textLabel.textColor = [UIColor colorWithRed:30/255.0 green:37/255.0 blue:89/255.0 alpha:1.0];
             
             UIImage * myImage2 = [UIImage imageNamed:@"transparent.png"];
             
             [cell.starUnSel setImage:myImage2];
         }
         
-    NSString * booth = [NSString stringWithFormat:@"Booth Number: %@", [object valueForKey:@"boothLabel"]];
-    cell.detailTextLabel.text = booth;
-    cell.detailTextLabel.textColor = [UIColor whiteColor];
-    //cell.detailTextLabel.font = [UIFont fontWithName:@"Arial" size:13.0];
+        NSString * booth = [NSString stringWithFormat:@"Booth Number: %@", [object valueForKey:@"boothLabel"]];
+        cell.detailTextLabel.text = booth;
+        cell.detailTextLabel.textColor = [UIColor blackColor];
+        //cell.detailTextLabel.font = [UIFont fontWithName:@"Arial" size:13.0];
     }
     else{
         
-    //myexhibitors = [results objectAtIndex:indexPath.row];
-    NSManagedObject *object = [results objectAtIndex:indexPath.row];
-    cell.textLabel.text = [object valueForKey:@"name"];
-    //cell.textLabel.font = [UIFont fontWithName:@"Arial" size:15.0];
-    //cell.textLabel.textColor = [UIColor brownColor];
+        //myexhibitors = [results objectAtIndex:indexPath.row];
+        NSManagedObject *object = [results objectAtIndex:indexPath.row];
+        cell.textLabel.text = [object valueForKey:@"name"];
+        //cell.textLabel.font = [UIFont fontWithName:@"Arial" size:15.0];
+        //cell.textLabel.textColor = [UIColor brownColor];
         NSString * fav = [NSString stringWithFormat:@"%@", [object valueForKey:@"fav"]];
         
         if ([fav isEqualToString:@"Yes"]) {
@@ -222,10 +228,10 @@
             [cell.starUnSel setImage:myImage2];
         }
         
-    NSString * booth = [NSString stringWithFormat:@"Booth Number: %@", [object valueForKey:@"boothLabel"]];
-    cell.detailTextLabel.text = booth;
-    cell.detailTextLabel.textColor = [UIColor whiteColor];
-    //cell.detailTextLabel.font = [UIFont fontWithName:@"Arial" size:13.0];
+        NSString * booth = [NSString stringWithFormat:@"Booth Number: %@", [object valueForKey:@"boothLabel"]];
+        cell.detailTextLabel.text = booth;
+        cell.detailTextLabel.textColor = [UIColor blackColor];
+        //cell.detailTextLabel.font = [UIFont fontWithName:@"Arial" size:13.0];
     }
     
     return cell;
@@ -259,43 +265,43 @@
         [alertView show];
     }
     else{
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
-                                        init];
-
-    [refreshControl endRefreshing];
-    self.objects = myResults;
-    [self.myTableView reloadData];
+        UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
+                                            init];
+        
+        [refreshControl endRefreshing];
+        self.objects = myResults;
+        [self.myTableView reloadData];
     }
 }
 
-- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
-{
-    
-    if(indexPath.row % 2 == 0){
-        UIColor *altCellColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
-        cell.backgroundColor = altCellColor;
-    }
-    else{
-        cell.backgroundColor = [UIColor colorWithRed:116/255.0 green:165/255.0 blue:168/255.0 alpha:1.0];;
-    }
-}
-
-//-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-//    
-//    //u need to change 0 to other value(,1,2,3) if u have more buttons.then u can check which button was pressed.
-//    
-//    if (buttonIndex == 0) {
-//        
-//        [self updateData];
-//        
-//        
+//- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
+//{
+//
+//    if(indexPath.row % 2 == 0){
+//        UIColor *altCellColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+//        cell.backgroundColor = altCellColor;
 //    }
-//    
-//    
-//    
+//    else{
+//        cell.backgroundColor = [UIColor colorWithRed:116/255.0 green:165/255.0 blue:168/255.0 alpha:1.0];;
+//    }
 //}
 
-    
+//-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+//
+//    //u need to change 0 to other value(,1,2,3) if u have more buttons.then u can check which button was pressed.
+//
+//    if (buttonIndex == 0) {
+//
+//        [self updateData];
+//
+//
+//    }
+//
+//
+//
+//}
+
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -312,14 +318,14 @@
         
         if (self.searchDisplayController.isActive) {
             NSIndexPath * indexPath = [[self.searchDisplayController searchResultsTableView] indexPathForSelectedRow];
-        ExhibitorsDetailViewController *destViewController = segue.destinationViewController;
-        destViewController.myExhibitors = [results objectAtIndex:indexPath.row];
+            ExhibitorsDetailViewController *destViewController = segue.destinationViewController;
+            destViewController.myExhibitors = [results objectAtIndex:indexPath.row];
         }
         else{
-        
-        NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
-        ExhibitorsDetailViewController *destViewController = segue.destinationViewController;
-        destViewController.myExhibitors = [objects objectAtIndex:indexPath.row];
+            
+            NSIndexPath *indexPath = [self.myTableView indexPathForSelectedRow];
+            ExhibitorsDetailViewController *destViewController = segue.destinationViewController;
+            destViewController.myExhibitors = [objects objectAtIndex:indexPath.row];
         }
     }
 }
@@ -342,23 +348,23 @@
     NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
     
     
-        UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
-                                            init];
-        
-        [refreshControl endRefreshing];
-        self.objects = myResults;
-        [self.myTableView reloadData];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
+                                        init];
+    
+    [refreshControl endRefreshing];
+    self.objects = myResults;
+    [self.myTableView reloadData];
     
     
 }
 
 //-(void)updateData{
 //    StartPageViewController * startPage = [[StartPageViewController alloc] init];
-//    
+//
 //    [startPage updateAllData];
-//    
-//    
-//    
+//
+//
+//
 //}
 
 

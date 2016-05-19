@@ -71,7 +71,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButtonItem;
@@ -116,10 +116,10 @@
     session1TimeLabel.text = timePeriod;
     sessionDesc = speakers.session1Desc;
     
-//    session2label.text = speakers.session2;
-//    session2DateLabel.text = speakers.session2Date;
-//    session2TimeLabel.text = speakers.session2Time;
-//    session2Desc = speakers.session2Desc;
+    //    session2label.text = speakers.session2;
+    //    session2DateLabel.text = speakers.session2Date;
+    //    session2TimeLabel.text = speakers.session2Time;
+    //    session2Desc = speakers.session2Desc;
     
     sessionId = speakers.sessionID;
     //sessionId2 = speakers.sessionID2;
@@ -128,15 +128,15 @@
     endTime = speakers.endTime;
     location = speakers.location;
     
-//    sess2StartTime = speakers.sess2StartTime;
-//    sess2EndTime = speakers.sess2EndTime;
-//    location2 = speakers.location2;
-//    poll1 = speakers.speakerWebsite;
-//    speakerPic = speakers.speakerPic;
-//    
-//    NSLog(@"Poll1 is: %@", speakers.speakerWebsite);
-//    NSLog(@"Poll2 is: %@", speakers.speakerPic);
-
+    //    sess2StartTime = speakers.sess2StartTime;
+    //    sess2EndTime = speakers.sess2EndTime;
+    //    location2 = speakers.location2;
+    //    poll1 = speakers.speakerWebsite;
+    //    speakerPic = speakers.speakerPic;
+    //
+    //    NSLog(@"Poll1 is: %@", speakers.speakerWebsite);
+    //    NSLog(@"Poll2 is: %@", speakers.speakerPic);
+    
     
     [[speakerBioTextView layer] setBorderColor:[[UIColor colorWithRed:48/256.0 green:134/256.0 blue:174/256.0 alpha:1.0] CGColor]];
     [[speakerBioTextView layer] setBorderWidth:2.3];
@@ -155,6 +155,12 @@
     
     
 }
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -193,14 +199,14 @@
         destViewController.endTime = self.endTime;
         destViewController.location = self.location;
         destViewController.poll1 = self.poll1;
-//        destViewController.session1LabelText.text = @"Hello";
+        //        destViewController.session1LabelText.text = @"Hello";
         NSLog(@"SessionID 1 is: %@", self.sessionId);
     }
     if ([segue.identifier isEqualToString:@"session2Info"]) {
         //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         self.session2Name = session2label.text;
         self.name = speakerName.text;
-                
+        
         self.session2Date = session2DateLabel.text;
         self.session2Time = session2TimeLabel.text;
         self.session2Desc = session2Desc;
@@ -222,7 +228,7 @@
         //        destViewController.session1LabelText.text = @"Hello";
         NSLog(@"SessionID 2 is: %@", self.sessionId2);
     }
-
+    
 }
 
 

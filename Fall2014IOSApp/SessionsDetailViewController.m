@@ -766,7 +766,7 @@
     
     else{
         
-        NSString * myURL = [NSString stringWithFormat:@"https://www.bicsi.org/uploadedfiles/bicsi_conferences/fall/2015/presentations/%@.pdf", mySessions.sessionID];
+        NSString * myURL = [NSString stringWithFormat:@"https://www.bicsi.org/uploadedfiles/bicsi_conferences/fall/2016/presentations/%@.pdf", mySessions.sessionID];
         NSLog(myURL);
         //    NSURL *url = [NSURL URLWithString:myURL];
         //	[[UIApplication sharedApplication] openURL:url];

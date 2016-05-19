@@ -52,7 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     
     
     
@@ -62,17 +62,17 @@
     self.navigationItem.backBarButtonItem = backButtonItem;
     
     
-    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
-    [tempImageView setFrame:self.myTableView.frame];
+    //    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"green"]];
+    //    [tempImageView setFrame:self.myTableView.frame];
+    //
+    //    self.myTableView.backgroundView = tempImageView;
     
-    self.myTableView.backgroundView = tempImageView;
-    
-//    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-//    HUD.labelText = @"Loading data...";
-//    //HUD.detailsLabelText = @"Just relax";
-//    HUD.mode = MBProgressHUDAnimationFade;
-//    [self.view addSubview:HUD];
-//    [HUD showWhileExecuting:@selector(waitForTwoSeconds) onTarget:self withObject:nil animated:YES];
+    //    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    //    HUD.labelText = @"Loading data...";
+    //    //HUD.detailsLabelText = @"Just relax";
+    //    HUD.mode = MBProgressHUDAnimationFade;
+    //    [self.view addSubview:HUD];
+    //    [HUD showWhileExecuting:@selector(waitForTwoSeconds) onTarget:self withObject:nil animated:YES];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
                                         init];
@@ -87,6 +87,11 @@
     
     
     //[self retrieveData];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 
@@ -107,7 +112,7 @@
     
     NSPredicate * resultsPredicate = [NSPredicate predicateWithFormat:@"speakerName contains [cd] %@", self.searchBar.text];
     self.results = [[self.objects filteredArrayUsingPredicate:resultsPredicate] mutableCopy];
-
+    
     
 }
 
@@ -124,7 +129,7 @@
     // Return the number of sections.
     return 1;
     
-
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -139,7 +144,7 @@
         [self searchThroughData];
         return self.results.count;
     }
-
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -149,61 +154,64 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
-    cell.backgroundColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+    //cell.backgroundColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+    cell.backgroundColor = [UIColor whiteColor];
     
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-        
-        //Speakers * speakers = nil;
-        if (tableView == self.myTableView){
+    
+    //Speakers * speakers = nil;
+    if (tableView == self.myTableView){
         NSManagedObject *object = [self.objects objectAtIndex:indexPath.row];
-            
-            NSString * firstName = [[NSString alloc] initWithFormat:@"%@", [object valueForKey:@"speakerName"]];
-            NSString * lastName = [[NSString alloc] initWithFormat:@"%@", [object valueForKey:@"speakerLastName"]];
-            NSString * fullName = [[NSString alloc] initWithFormat:@"%@ %@", firstName, lastName];
-            //speakers = [speakersArray objectAtIndex:indexPath.row];
-            cell.textLabel.text = fullName;
-            cell.textLabel.textColor = [UIColor colorWithRed:30/255.0 green:37/255.0 blue:89/255.0 alpha:1.0];
-            cell.detailTextLabel.text = [object valueForKey:@"speakerCompany"];
-           //cell.detailTextLabel.font = [UIFont fontWithName:@"Arial" size:10.0];
-            //cell.textLabel.font = [UIFont fontWithName:@"Arial-Bold" size:14.0];
-            cell.detailTextLabel.textColor = [UIColor whiteColor];
-    }
-        else
-        {
-            //speakers = [results objectAtIndex:indexPath.row];
-            NSManagedObject *object = [results objectAtIndex:indexPath.row];
-            NSString * firstName = [[NSString alloc] initWithFormat:@"%@", [object valueForKey:@"speakerName"]];
-            NSString * lastName = [[NSString alloc] initWithFormat:@"%@", [object valueForKey:@"speakerLastName"]];
-            NSString * fullName = [[NSString alloc] initWithFormat:@"%@ %@", firstName, lastName];
-            //speakers = [speakersArray objectAtIndex:indexPath.row];
-            cell.textLabel.text = fullName;
-            cell.textLabel.textColor = [UIColor colorWithRed:30/255.0 green:37/255.0 blue:89/255.0 alpha:1.0];
-            cell.detailTextLabel.text = [object valueForKey:@"speakerCompany"];
-            //cell.detailTextLabel.font = [UIFont fontWithName:@"Arial" size:10.0];
-            //cell.textLabel.font = [UIFont fontWithName:@"Arial-Bold" size:14.0];
-            cell.textLabel.textColor = [UIColor whiteColor];
-        }
         
+        NSString * firstName = [[NSString alloc] initWithFormat:@"%@", [object valueForKey:@"speakerName"]];
+        NSString * lastName = [[NSString alloc] initWithFormat:@"%@", [object valueForKey:@"speakerLastName"]];
+        NSString * fullName = [[NSString alloc] initWithFormat:@"%@ %@", firstName, lastName];
+        //speakers = [speakersArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = fullName;
+        //cell.textLabel.textColor = [UIColor colorWithRed:30/255.0 green:37/255.0 blue:89/255.0 alpha:1.0];
+        cell.textLabel.textColor = [UIColor colorWithRed:30/255.0 green:37/255.0 blue:89/255.0 alpha:1.0];
+        cell.detailTextLabel.text = [object valueForKey:@"speakerCompany"];
+        //cell.detailTextLabel.font = [UIFont fontWithName:@"Arial" size:10.0];
+        //cell.textLabel.font = [UIFont fontWithName:@"Arial-Bold" size:14.0];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
+    }
+    else
+    {
+        //speakers = [results objectAtIndex:indexPath.row];
+        NSManagedObject *object = [results objectAtIndex:indexPath.row];
+        NSString * firstName = [[NSString alloc] initWithFormat:@"%@", [object valueForKey:@"speakerName"]];
+        NSString * lastName = [[NSString alloc] initWithFormat:@"%@", [object valueForKey:@"speakerLastName"]];
+        NSString * fullName = [[NSString alloc] initWithFormat:@"%@ %@", firstName, lastName];
+        //speakers = [speakersArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = fullName;
+        //cell.textLabel.textColor = [UIColor colorWithRed:30/255.0 green:37/255.0 blue:89/255.0 alpha:1.0];
+        cell.textLabel.textColor = [UIColor colorWithRed:30/255.0 green:37/255.0 blue:89/255.0 alpha:1.0];
+        cell.detailTextLabel.text = [object valueForKey:@"speakerCompany"];
+        //cell.detailTextLabel.font = [UIFont fontWithName:@"Arial" size:10.0];
+        //cell.textLabel.font = [UIFont fontWithName:@"Arial-Bold" size:14.0];
+        cell.detailTextLabel.textColor = [UIColor blackColor];
+    }
+    
     
     return cell;
-
+    
 }
 
-//- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
-//{
-//    
-//    if(indexPath.row % 2 == 0){
-//        UIColor *altCellColor = [UIColor colorWithRed:246/255.0 green:235/255.0 blue:253/255.0 alpha:1.0];
-//        cell.backgroundColor = altCellColor;
-//    }
-//    else{
-//        cell.backgroundColor = [UIColor whiteColor];
-//    }
-//}
+- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
+{
+    
+    if(indexPath.row % 2 == 0){
+        UIColor *altCellColor = [UIColor colorWithRed:246/255.0 green:246/255.0 blue:246/255.0 alpha:1.0];
+        cell.backgroundColor = altCellColor;
+    }
+    else{
+        cell.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];;
+    }
+}
 
 -(void)refreshTable{
     
@@ -233,41 +241,41 @@
         [alertView show];
     }
     else{
-    
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
-                                        init];
-    
-    [refreshControl endRefreshing];
-    self.objects = myResults;
-    [self.myTableView reloadData];
+        
+        UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
+                                            init];
+        
+        [refreshControl endRefreshing];
+        self.objects = myResults;
+        [self.myTableView reloadData];
     }
 }
 
-- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
-{
-    
-    if(indexPath.row % 2 == 0){
-        UIColor *altCellColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
-        cell.backgroundColor = altCellColor;
-    }
-    else{
-        cell.backgroundColor = [UIColor colorWithRed:116/255.0 green:165/255.0 blue:168/255.0 alpha:1.0];;
-    }
-}
+//- (void)tableView: (UITableView*)tableView willDisplayCell: (UITableViewCell*)cell forRowAtIndexPath: (NSIndexPath*)indexPath
+//{
+//
+//    if(indexPath.row % 2 == 0){
+//        UIColor *altCellColor = [UIColor colorWithRed:130/255.0 green:171/255.0 blue:50/255.0 alpha:1.0];
+//        cell.backgroundColor = altCellColor;
+//    }
+//    else{
+//        cell.backgroundColor = [UIColor colorWithRed:116/255.0 green:165/255.0 blue:168/255.0 alpha:1.0];;
+//    }
+//}
 
 //-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-//    
+//
 //    //u need to change 0 to other value(,1,2,3) if u have more buttons.then u can check which button was pressed.
-//    
+//
 //    if (buttonIndex == 0) {
-//        
+//
 //        [self updateData];
-//        
-//        
+//
+//
 //    }
-//    
-//    
-//    
+//
+//
+//
 //}
 
 
@@ -292,22 +300,22 @@
             NSIndexPath * indexPath = [[self.searchDisplayController searchResultsTableView] indexPathForSelectedRow];
             SpeakerDetailViewController *destViewController = segue.destinationViewController;
             destViewController.speakers = [self.results objectAtIndex:indexPath.row];
-
+            
         }
         else{
-        
-        NSIndexPath * indexPath = [self.myTableView indexPathForSelectedRow];
-        SpeakerDetailViewController *destViewController = segue.destinationViewController;
-        destViewController.speakers = [self.objects objectAtIndex:indexPath.row];
+            
+            NSIndexPath * indexPath = [self.myTableView indexPathForSelectedRow];
+            SpeakerDetailViewController *destViewController = segue.destinationViewController;
+            destViewController.speakers = [self.objects objectAtIndex:indexPath.row];
         }
     }
 }
 
 //-(void)updateData{
 //    StartPageViewController * startPage = [[StartPageViewController alloc] init];
-//    
+//
 //    [startPage updateAllData];
-//    
+//
 //}
 
 
