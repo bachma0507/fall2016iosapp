@@ -203,6 +203,10 @@
 		4C6CFCF0197036A900AEB8B2 /* cec_background_ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CFCEA197036A900AEB8B2 /* cec_background_ipad@2x.png */; };
 		4C6CFCF1197036A900AEB8B2 /* contactus_background_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CFCEB197036A900AEB8B2 /* contactus_background_ipad.png */; };
 		4C6CFCF2197036A900AEB8B2 /* contactus_background_ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6CFCEC197036A900AEB8B2 /* contactus_background_ipad@2x.png */; };
+		4C6D39AD1CEE1DB100745507 /* survey_tab_icon_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6D39A91CEE1DB100745507 /* survey_tab_icon_selected.png */; };
+		4C6D39AE1CEE1DB100745507 /* survey_tab_icon_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6D39AA1CEE1DB100745507 /* survey_tab_icon_selected@2x.png */; };
+		4C6D39AF1CEE1DB100745507 /* survey_tab_icon_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6D39AB1CEE1DB100745507 /* survey_tab_icon_unselected.png */; };
+		4C6D39B01CEE1DB100745507 /* survey_tab_icon_unselected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C6D39AC1CEE1DB100745507 /* survey_tab_icon_unselected@2x.png */; };
 		4C74593317567FF800A76417 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C74593217567FF800A76417 /* Security.framework */; };
 		4C7459351756801600A76417 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7459341756801600A76417 /* CoreData.framework */; };
 		4C7459371756802F00A76417 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C7459361756802F00A76417 /* MobileCoreServices.framework */; };
@@ -956,6 +960,10 @@
 		4C6CFCEA197036A900AEB8B2 /* cec_background_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cec_background_ipad@2x.png"; sourceTree = "<group>"; };
 		4C6CFCEB197036A900AEB8B2 /* contactus_background_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contactus_background_ipad.png; sourceTree = "<group>"; };
 		4C6CFCEC197036A900AEB8B2 /* contactus_background_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "contactus_background_ipad@2x.png"; sourceTree = "<group>"; };
+		4C6D39A91CEE1DB100745507 /* survey_tab_icon_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survey_tab_icon_selected.png; sourceTree = "<group>"; };
+		4C6D39AA1CEE1DB100745507 /* survey_tab_icon_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "survey_tab_icon_selected@2x.png"; sourceTree = "<group>"; };
+		4C6D39AB1CEE1DB100745507 /* survey_tab_icon_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = survey_tab_icon_unselected.png; sourceTree = "<group>"; };
+		4C6D39AC1CEE1DB100745507 /* survey_tab_icon_unselected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "survey_tab_icon_unselected@2x.png"; sourceTree = "<group>"; };
 		4C74593217567FF800A76417 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4C7459341756801600A76417 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4C7459361756802F00A76417 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -1859,6 +1867,10 @@
 		4C3EC0D0176428A4002E7415 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4C6D39A91CEE1DB100745507 /* survey_tab_icon_selected.png */,
+				4C6D39AA1CEE1DB100745507 /* survey_tab_icon_selected@2x.png */,
+				4C6D39AB1CEE1DB100745507 /* survey_tab_icon_unselected.png */,
+				4C6D39AC1CEE1DB100745507 /* survey_tab_icon_unselected@2x.png */,
 				4C4A7AB31BC8010000F0EC5F /* Winter_2016_images */,
 				4C04E32A1AF296BF0036E126 /* Fall_2015_images */,
 				4CB8E24A1AA41E0D00F8638A /* Canada_2015_images */,
@@ -3387,6 +3399,7 @@
 				4CA3349C1AAA84DB00D09FAE /* Exhibit_hall_schedule_C15@3x.png in Resources */,
 				4CCFD95919F9526D00464E3D /* cecinfoW15_550x550.png in Resources */,
 				4C3FD7AD175BC94100B381AA /* tabbar_selected@2x.png in Resources */,
+				4C6D39AD1CEE1DB100745507 /* survey_tab_icon_selected.png in Resources */,
 				4CA3349B1AAA84DB00D09FAE /* Conference_schedule_C15@3x.png in Resources */,
 				4CCFD9901A05F6A800464E3D /* scenery5-ipad@2x.png in Resources */,
 				4C9B1E0D19E34387007E0F51 /* typing.png in Resources */,
@@ -3523,6 +3536,7 @@
 				4CB69ADA1AC2F91500EC93B3 /* surveys_background-ipad.png in Resources */,
 				4C7EC26E1779DEE400A73C8D /* twitterfeed@2x.png in Resources */,
 				4CA334D71AAA84DB00D09FAE /* my_schedule_C15.png in Resources */,
+				4C6D39AF1CEE1DB100745507 /* survey_tab_icon_unselected.png in Resources */,
 				4C9B1E0919E34387007E0F51 /* bubble_tailless.png in Resources */,
 				4C97760819F1428700A1C460 /* candela@3x.png in Resources */,
 				4C7EC26F1779DEE400A73C8D /* twitterpost@2x.png in Resources */,
@@ -3597,6 +3611,7 @@
 				4CCFD9771A029BD200464E3D /* backbutton.png in Resources */,
 				4C2735BA184BE52600383C2B /* THE BICSI 2014 WINTER CONFERENCE PROGRAM.pdf in Resources */,
 				4CF45E7817822769000F6A5D /* twitterpost-568h@2x.png in Resources */,
+				4C6D39AE1CEE1DB100745507 /* survey_tab_icon_selected@2x.png in Resources */,
 				4CB8E2511AA41E2E00F8638A /* sunrise@2x.png in Resources */,
 				4CA334A51AAA84DB00D09FAE /* conference_schedule_C15-ipad@2x.png in Resources */,
 				4CD36C5419F00F6C004C2872 /* tabBarBackground.png in Resources */,
@@ -3692,6 +3707,7 @@
 				4C156C1A17D7E909008919A9 /* reload30x30.png in Resources */,
 				4CA3349A1AAA84DB00D09FAE /* Concurrent_sessions_C15@3x.png in Resources */,
 				4C9B1E0619E34387007E0F51 /* bubble_stroked@2x.png in Resources */,
+				4C6D39B01CEE1DB100745507 /* survey_tab_icon_unselected@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4153,6 +4169,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CODE_SIGN_ENTITLEMENTS = "fall2016Watch Extension/fall2016Watch Extension.entitlements";
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -4185,6 +4202,7 @@
 				CODE_SIGN_ENTITLEMENTS = "fall2016Watch Extension/fall2016Watch Extension.entitlements";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -4220,6 +4238,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -4255,6 +4274,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;

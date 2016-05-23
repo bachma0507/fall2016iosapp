@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HQR-0g-mm0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="HQR-0g-mm0">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -14,9 +14,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView alpha="0.94999999999999996" contentMode="scaleToFill" id="wgu-3R-5v6">
-                                <rect key="frame" x="0.0" y="73" width="320" height="382"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="24Z-AG-khO" id="Jc9-Xt-6Su"/>
@@ -32,8 +32,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Presentations" id="qxv-SE-4a1">
+                        <barButtonItem key="leftBarButtonItem" title="All" id="fcq-I5-qoX">
+                            <connections>
+                                <action selector="viewAll:" destination="24Z-AG-khO" id="ADZ-Wy-04j"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Open In" id="6lL-WU-4yr">
                             <connections>
                                 <action selector="shareButton:" destination="24Z-AG-khO" id="4Up-kh-Mwq"/>
@@ -58,7 +63,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-4651" y="-883"/>
+            <point key="canvasLocation" x="-991" y="-2290"/>
         </scene>
         <!--Find Area Activities-->
         <scene sceneID="sb7-Nj-Uub">
@@ -796,7 +801,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wce-Pj-ASz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1165" y="-3419"/>
+            <point key="canvasLocation" x="-1022" y="-2992"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="Scs-vD-J8X">
@@ -1004,7 +1009,7 @@
         <!--Item-->
         <scene sceneID="z6M-0O-uYb">
             <objects>
-                <navigationController storyboardIdentifier="BackToLoginId" definesPresentationContext="YES" id="MJf-nm-bzG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BackToLoginId" id="MJf-nm-bzG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="ne6-vy-vcz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eI2-s9-sPH">
                         <autoresizingMask key="autoresizingMask"/>
@@ -2097,7 +2102,6 @@
                                 <rect key="frame" x="118" y="330" width="85" height="106"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yKx-Ci-sga">
@@ -3038,11 +3042,11 @@
             </objects>
             <point key="canvasLocation" x="116" y="-869"/>
         </scene>
-        <!--Chat Rooms-->
+        <!--Presentations-->
         <scene sceneID="eOI-CQ-PKc">
             <objects>
                 <navigationController id="enQ-KR-oEw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chat Rooms" image="social_tab_icon_unselected.png" id="t0L-2Q-Jw3"/>
+                    <tabBarItem key="tabBarItem" title="Presentations" image="survey_tab_icon_unselected.png" id="t0L-2Q-Jw3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MUw-9o-y2l">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -3050,7 +3054,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="bOC-Jp-ivm" kind="relationship" relationship="rootViewController" id="uVB-JU-vdk"/>
+                        <segue destination="24Z-AG-khO" kind="relationship" relationship="rootViewController" id="85Z-ea-k6P"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nv5-Gk-zJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3933,14 +3937,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w7B-ez-dmX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-911" y="-2550"/>
+            <point key="canvasLocation" x="-644" y="-2474"/>
         </scene>
         <!--Group View Table View Controller-->
         <scene sceneID="Fvs-ay-7Z4">
             <objects>
                 <tableViewController id="poy-DP-yzY" customClass="GroupViewTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7D2-bE-Uta">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -4079,17 +4083,18 @@
         <image name="news_tab_icon_unselected.png" width="22" height="22"/>
         <image name="powered-by-google-on-white.png" width="104" height="16"/>
         <image name="reload30x30.png" width="30" height="30"/>
-        <image name="social_tab_icon_unselected.png" width="22" height="22"/>
+        <image name="survey_tab_icon_unselected.png" width="22" height="22"/>
         <image name="updatedata_button.png" width="222" height="65"/>
         <image name="view_website_icon.png" width="25" height="25"/>
         <image name="yelp_logo.png" width="102" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bmv-kT-R6k"/>
         <segue reference="TjF-aT-jj7"/>
+        <segue reference="40o-NH-skY"/>
         <segue reference="kta-Nv-RwY"/>
         <segue reference="XS1-ta-yNk"/>
-        <segue reference="Dsf-md-SSX"/>
         <segue reference="R22-dx-yzm"/>
+        <segue reference="Bmv-kT-R6k"/>
+        <segue reference="Dsf-md-SSX"/>
     </inferredMetricsTieBreakers>
 </document>

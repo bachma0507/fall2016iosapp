@@ -28,5 +28,6 @@
 
 - (IBAction)shareButton:(id)sender;
 
+- (IBAction)viewAll:(id)sender;
 
 @end
