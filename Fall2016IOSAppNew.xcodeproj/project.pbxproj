@@ -501,6 +501,7 @@
 		4CD0599619F58FC00062C1EC /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD0599519F58FC00062C1EC /* Parse.framework */; };
 		4CD0599819F58FCB0062C1EC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD0599719F58FCB0062C1EC /* Bolts.framework */; };
 		4CD0599A19F58FF80062C1EC /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CD0599919F58FF80062C1EC /* ParseFacebookUtils.framework */; };
+		4CD2303C1CF619A80052C152 /* bicsi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C68386618A75B4A00CB650C /* bicsi.xcdatamodeld */; };
 		4CD36C5019F00E6A004C2872 /* navigation-btn-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CD36C4E19F00E6A004C2872 /* navigation-btn-menu.png */; };
 		4CD36C5119F00E6A004C2872 /* navigation-btn-menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CD36C4F19F00E6A004C2872 /* navigation-btn-menu@2x.png */; };
 		4CD36C5419F00F6C004C2872 /* tabBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CD36C5219F00F6C004C2872 /* tabBarBackground.png */; };
@@ -3974,6 +3975,7 @@
 				4C338DA41CE3C1CB00C9C64A /* SessionsWatch.m in Sources */,
 				4C338DA71CE3C1CB00C9C64A /* ScheduleTableRow.m in Sources */,
 				4C338DA51CE3C1CB00C9C64A /* DetailTableRow.m in Sources */,
+				4CD2303C1CF619A80052C152 /* bicsi.xcdatamodeld in Sources */,
 				4C338DAB1CE3C5DC00C9C64A /* CoreDataHelper.m in Sources */,
 				4C338D971CE3C1B900C9C64A /* InterfaceController.m in Sources */,
 				4C338D961CE3C1B900C9C64A /* ErrorInterfaceController.m in Sources */,

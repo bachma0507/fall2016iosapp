@@ -28,15 +28,19 @@
     
 
     // Configure interface objects here.
-//    
+    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+//        [self updateWatchTable];
+    
+        
+    //});
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
         [self updateData];
-        //[self updateSessions];
+        
         
     });
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
-        //[self updateData];
         [self updateSessions];
         
     });
@@ -62,7 +66,16 @@
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     
+    
     NSArray *myResults = [[[CoreDataHelper sharedHelper] context] executeFetchRequest:fetchRequest error:nil];
+    
+    if (!myResults) {
+        [self pushControllerWithName:@"ErrorInterfaceController"
+                             context:nil];
+        
+        //[self presentControllerWithName:@"ErrorInterfaceController" context:nil];
+    }
+
     
 //    CoreDataHelper * myhelper = [[CoreDataHelper alloc] init];
 //    
@@ -178,7 +191,7 @@
         //}];
 
         NSURLSession *session = [NSURLSession sharedSession];
-        NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"https://speedyreference.com/cscheduleC16.php"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSURLSessionDataTask *dataTask = [session dataTaskWithURL:[NSURL URLWithString:@"https://speedyreference.com/cscheduleF16.php"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         if ([data length] == 0 && error == nil)
         {
