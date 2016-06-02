@@ -497,13 +497,107 @@
                     [object setValue:mySessions.sessionID forKey:@"sessionID"];
                     
                     
+                    
                     //[object setValue:[NSDate date:mySessions.startTime] forKey:@"startTime"];
                     //[object setValue:[NSDate convertTimeFromStr:mySessions.endTime] forKey:@"endTime"];
                     
                     NSDateFormatter *df = [[NSDateFormatter alloc] init];
                     [df setDateFormat:@"hh:mm a"];
+                    
+                    NSString *strTime = mySessions.startTime;
+                    
+                    if ([strTime isEqualToString: @"08:01 AM"])  {
+                        
+                        NSString *newStrTime = @"08:00 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [object setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"08:02 AM"])  {
+                        
+                        NSString *newStrTime = @"08:00 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [object setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"08:59 AM"])  {
+                        
+                        NSString *newStrTime = @"09:00 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [object setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"02:59 PM"])  {
+                        
+                        NSString *newStrTime = @"03:00 PM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [object setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"03:59 PM"])  {
+                        
+                        NSString *newStrTime = @"04:00 PM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [object setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"07:29 AM"])  {
+                        
+                        NSString *newStrTime = @"07:30 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [object setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"07:59 AM"])  {
+                        
+                        NSString *newStrTime = @"08:00 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [object setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"09:01 AM"])  {
+                        
+                        NSString *newStrTime = @"09:00 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [object setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"01:31 PM"])  {
+                        
+                        NSString *newStrTime = @"01:30 PM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [object setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"08:31 AM"])  {
+                        
+                        NSString *newStrTime = @"08:30 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [object setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"02:01 PM"])  {
+                        
+                        NSString *newStrTime = @"02:00 PM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [object setValue:startTime forKey:@"startTime"];
+                    }
+                    else{
                     NSDate *startTime = [df dateFromString: mySessions.startTime];
                     [object setValue:startTime forKey:@"startTime"];
+                    }
                     
                     NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
                     [df2 setDateFormat:@"hh:mm a"];
@@ -572,10 +666,103 @@
                     //[newManagedObject setValue:mySessions.startTime forKey:@"startTime"];
                     
                     NSDateFormatter *df = [[NSDateFormatter alloc] init];
-                    
                     [df setDateFormat:@"hh:mm a"];
-                    NSDate *startTime = [df dateFromString: mySessions.startTime];
-                    [newManagedObject setValue:startTime forKey:@"startTime"];
+                    
+                    NSString *strTime = mySessions.startTime;
+                    
+                    if ([strTime isEqualToString: @"08:01 AM"])  {
+                        
+                        NSString *newStrTime = @"08:00 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [newManagedObject setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"08:02 AM"])  {
+                        
+                        NSString *newStrTime = @"08:00 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [newManagedObject setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"08:59 AM"])  {
+                        
+                        NSString *newStrTime = @"09:00 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [newManagedObject setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"02:59 PM"])  {
+                        
+                        NSString *newStrTime = @"03:00 PM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [newManagedObject setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"03:59 PM"])  {
+                        
+                        NSString *newStrTime = @"04:00 PM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [newManagedObject setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"07:29 AM"])  {
+                        
+                        NSString *newStrTime = @"07:30 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [newManagedObject setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"07:59 AM"])  {
+                        
+                        NSString *newStrTime = @"08:00 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [newManagedObject setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"09:01 AM"])  {
+                        
+                        NSString *newStrTime = @"09:00 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [newManagedObject setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"01:31 PM"])  {
+                        
+                        NSString *newStrTime = @"01:30 PM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [newManagedObject setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"08:31 AM"])  {
+                        
+                        NSString *newStrTime = @"08:30 AM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [newManagedObject setValue:startTime forKey:@"startTime"];
+                    }
+                    else if ([strTime isEqualToString: @"02:01 PM"])  {
+                        
+                        NSString *newStrTime = @"02:00 PM";
+                        
+                        NSDate *startTime = [df dateFromString: newStrTime];
+                        
+                        [newManagedObject setValue:startTime forKey:@"startTime"];
+                    }
+                    else{
+                        NSDate *startTime = [df dateFromString: mySessions.startTime];
+                        [newManagedObject setValue:startTime forKey:@"startTime"];
+                    }
+
                     
                     NSDateFormatter *df2 = [[NSDateFormatter alloc] init];
                     [df2 setDateFormat:@"hh:mm a"];
@@ -587,9 +774,6 @@
                     
                     NSString * myLocation3 = [[NSString alloc] initWithFormat:@"%@",mySessions.location];
                     [newManagedObject setValue:myLocation3 forKey:@"location"];
-                    
-                    
-                    
                     
                     
                     NSError *error = nil;

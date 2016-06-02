@@ -1627,8 +1627,79 @@ int iNotificationCounter=0;
                         [object setValue:mySessions.sessionDesc forKey:@"sessionDesc"];
                         [object setValue:mySessions.sessionID forKey:@"sessionID"];
                         
-
-                        [object setValue:[NSDate convertTimeFromStr:mySessions.startTime] forKey:@"startTime"];
+                        NSString *strTime = mySessions.startTime;
+                        
+                        if ([strTime isEqualToString: @"08:01 AM"])  {
+                            
+                            NSString *newStrTime = @"08:00 AM";
+                            
+                            [object setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"08:02 AM"])  {
+                            
+                            NSString *newStrTime = @"08:00 AM";
+                            
+                            [object setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"08:59 AM"])  {
+                            
+                            NSString *newStrTime = @"09:00 AM";
+                            
+                            [object setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"02:59 PM"])  {
+                            
+                            NSString *newStrTime = @"03:00 PM";
+                            
+                            [object setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"03:59 PM"])  {
+                            
+                            NSString *newStrTime = @"04:00 PM";
+                            
+                            [object setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"07:29 AM"])  {
+                            
+                            NSString *newStrTime = @"07:30 AM";
+                            
+                            [object setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"07:59 AM"])  {
+                            
+                            NSString *newStrTime = @"08:00 AM";
+                            
+                            [object setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"09:01 AM"])  {
+                            
+                            NSString *newStrTime = @"09:00 AM";
+                            
+                            [object setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"01:31 PM"])  {
+                            
+                            NSString *newStrTime = @"01:30 PM";
+                            
+                            [object setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"08:31 AM"])  {
+                            
+                            NSString *newStrTime = @"08:30 AM";
+                            
+                            [object setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"02:01 PM"])  {
+                            
+                            NSString *newStrTime = @"02:00 PM";
+                            
+                            [object setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else{
+                            [object setValue:[NSDate convertTimeFromStr:mySessions.startTime] forKey:@"startTime"];
+                        }
+                        
+                        //[object setValue:[NSDate convertTimeFromStr:mySessions.startTime] forKey:@"startTime"];
                         [object setValue:[NSDate convertTimeFromStr:mySessions.endTime] forKey:@"endTime"];
                         
                         NSString * myLocation3 = [[NSString alloc] initWithFormat:@"%@",mySessions.location];
@@ -1641,6 +1712,7 @@ int iNotificationCounter=0;
                             
                         }
                         NSLog(@"You updated an object in Sessions");
+                        NSLog(@">>>>MYSESSIONS.STARTTIME IS: %@ <<<<<<<", mySessions.startTime);
                     }
                     
                     if (!myResults || !myResults.count){
@@ -1690,9 +1762,82 @@ int iNotificationCounter=0;
                         [newManagedObject setValue:mySessions.sessionID forKey:@"sessionID"];
                         //[newManagedObject setValue:mySessions.startTime forKey:@"startTime"];
                         
+                        
+                        
                         NSDateFormatter *df = [[NSDateFormatter alloc] init];
-                    
-                        [newManagedObject setValue:[NSDate convertTimeFromStr:mySessions.startTime] forKey:@"startTime"];
+                        
+                        NSString *strTime = mySessions.startTime;
+                        
+                        if ([strTime isEqualToString: @"08:01 AM"])  {
+                            
+                            NSString *newStrTime = @"08:00 AM";
+                            
+                        [newManagedObject setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                            }
+                        else if ([strTime isEqualToString: @"08:02 AM"])  {
+                            
+                            NSString *newStrTime = @"08:00 AM";
+                            
+                            [newManagedObject setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"08:59 AM"])  {
+                            
+                            NSString *newStrTime = @"09:00 AM";
+                            
+                            [newManagedObject setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"02:59 PM"])  {
+                            
+                            NSString *newStrTime = @"03:00 PM";
+                            
+                            [newManagedObject setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"03:59 PM"])  {
+                            
+                            NSString *newStrTime = @"04:00 PM";
+                            
+                            [newManagedObject setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"07:29 AM"])  {
+                            
+                            NSString *newStrTime = @"07:30 AM";
+                            
+                            [newManagedObject setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"07:59 AM"])  {
+                            
+                            NSString *newStrTime = @"08:00 AM";
+                            
+                            [newManagedObject setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"09:01 AM"])  {
+                            
+                            NSString *newStrTime = @"09:00 AM";
+                            
+                            [newManagedObject setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"01:31 PM"])  {
+                            
+                            NSString *newStrTime = @"01:30 PM";
+                            
+                            [newManagedObject setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"08:31 AM"])  {
+                            
+                            NSString *newStrTime = @"08:30 AM";
+                            
+                            [newManagedObject setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else if ([strTime isEqualToString: @"02:01 PM"])  {
+                            
+                            NSString *newStrTime = @"02:00 PM";
+                            
+                            [newManagedObject setValue:[NSDate convertTimeFromStr:newStrTime] forKey:@"startTime"];
+                        }
+                        else{
+                         [newManagedObject setValue:[NSDate convertTimeFromStr:mySessions.startTime] forKey:@"startTime"];
+                        }
+                        
                         [newManagedObject setValue:[NSDate convertTimeFromStr:mySessions.endTime] forKey:@"endTime"];
                         
                         NSString * myLocation3 = [[NSString alloc] initWithFormat:@"%@",mySessions.location];
@@ -1708,6 +1853,8 @@ int iNotificationCounter=0;
                             NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
                         }
                         NSLog(@"You created a new Session object! Session ID: %@",mySessions.sessionID);
+                        NSLog(@">>>>MYSESSIONS.STARTTIME IS: %@ <<<<<<<", mySessions.startTime);
+
                         //NSLog(@"Object created sessionName is: %@",mySessions.sessionName);
                     }
                     
