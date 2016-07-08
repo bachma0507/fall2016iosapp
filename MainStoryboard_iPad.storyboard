@@ -570,7 +570,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0y-0g-b8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1027" y="-2612"/>
+            <point key="canvasLocation" x="297" y="-1216"/>
         </scene>
         <!--2016 BICSI Fall Conference & Exhibition-->
         <scene sceneID="8Ge-6H-E4o">
@@ -897,7 +897,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JcM-ru-DVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-644" y="-2555"/>
+            <point key="canvasLocation" x="-944" y="-2555"/>
         </scene>
         <!--Contact Us-->
         <scene sceneID="Xaf-P2-GsH">
@@ -1193,12 +1193,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Nt0-92-uRa" kind="relationship" relationship="rootViewController" id="FyV-Gc-SII"/>
+                        <segue destination="A4P-tb-Qo8" kind="relationship" relationship="rootViewController" id="W51-hB-utQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQ1-IT-f6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2547" y="-6452"/>
+            <point key="canvasLocation" x="-3275" y="-5956"/>
         </scene>
         <!--Find Area Activities-->
         <scene sceneID="5vE-Pz-nvo">
@@ -1311,6 +1311,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Presentations (PDF)" id="R6N-3h-lkj">
+                        <barButtonItem key="leftBarButtonItem" title="All" id="lkD-o7-eua">
+                            <connections>
+                                <action selector="viewAll:" destination="A4P-tb-Qo8" id="kaE-yg-Ipe"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Open In" id="3Si-1o-VJD">
                             <connections>
                                 <action selector="shareButton:" destination="A4P-tb-Qo8" id="1AQ-Uy-03c"/>
@@ -1335,7 +1340,7 @@
                     </connections>
                 </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1290" y="-2935"/>
+            <point key="canvasLocation" x="-2394" y="-5951"/>
         </scene>
         <!--My Notes-->
         <scene sceneID="W0D-oK-p0A">
@@ -3347,7 +3352,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lhs-ni-iJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1306" y="-6482"/>
+            <point key="canvasLocation" x="-2182" y="-7159"/>
         </scene>
         <!--Register-->
         <scene sceneID="F7C-IK-c3S">
@@ -3428,7 +3433,7 @@
             <objects>
                 <tableViewController id="7KN-jB-RUf" customClass="GroupViewTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5iU-Ad-qwf">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -3502,12 +3507,13 @@
         <image name="updatedata_button.png" width="222" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="34m-OW-Lo0"/>
+        <segue reference="Gmd-RU-haQ"/>
         <segue reference="SDK-bn-4vP"/>
+        <segue reference="W51-hB-utQ"/>
         <segue reference="Wll-oD-v1N"/>
         <segue reference="AV2-4O-mek"/>
         <segue reference="x9l-yO-e2N"/>
-        <segue reference="Gmd-RU-haQ"/>
         <segue reference="muH-WA-dU8"/>
+        <segue reference="34m-OW-Lo0"/>
     </inferredMetricsTieBreakers>
 </document>
