@@ -3059,7 +3059,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nv5-Gk-zJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1438" y="-2199"/>
+            <point key="canvasLocation" x="-1558" y="-2341"/>
         </scene>
         <!--Sessions Detail View Controller-->
         <scene sceneID="M8h-b1-54R">
