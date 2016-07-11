@@ -66,7 +66,7 @@
 //        
 //    }
     
-    NSString *httpSource = @"http://barrycjulien.com/floormap/boothinfofall16.htm";
+    NSString *httpSource = @"https://www.speedyreference.com/floormap/boothinfofall16.htm";
     NSURL *fullUrl = [NSURL URLWithString:httpSource];
     NSURLRequest *httpRequest = [NSURLRequest requestWithURL:fullUrl];
     [webView loadRequest:httpRequest];

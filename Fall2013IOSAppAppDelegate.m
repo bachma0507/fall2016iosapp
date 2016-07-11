@@ -594,7 +594,7 @@ int iNotificationCounter=0;
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             
-            NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/exhibitorsW16.php"];
+            NSURL *url = [NSURL URLWithString:@"https://speedyreference.com/exhibitorsF16.php"];
             NSData * data = [NSData dataWithContentsOfURL:url];
             NSError * error;
             //added code 092715 to handle exception
