@@ -21,7 +21,7 @@
     //[self.playerView loadWithVideoId:@"L3EO0qmfKtI"];
     
     
-    //NSString * stream = @"https://www.youtube.com/watch?v=XnJK8mL-9QQ";
+    //NSString * stream = @"https://www.youtube.com/watch?v=jF2e0sMOwjo";
     NSString * stream = @"https://www.youtube.com/watch?v=XnJK8mL-9QQ";
     
     //NSString * stream = @"http://www.bicsi.org/directory/uplink/default.aspx?id=8027";
