@@ -70,7 +70,8 @@
     
     //NSString *httpSource = @"http://s23.a2zinc.net/clients/BICSI/fall2013//Public/GeneratePDF.aspx?IMID=undefined&EventId=20&MapId=20";
     //NSString * myURL = [NSString stringWithFormat:@"http://www.bicsi.org/m2/Floor.aspx?BoothId=%@", myExhibitors.boothLabel];
-    NSString * myURL = [NSString stringWithFormat:@"http://s23.a2zinc.net/clients/BICSI/canada2015/public/eBooth.aspx?Nav=false&BoothID=%@&EventID=%@&CoID=%@&Source=ExhibitorList", myExhibitors.boothId, myExhibitors.eventId, myExhibitors.coId];
+    //NSString * myURL = [NSString stringWithFormat:@"http://s23.a2zinc.net/clients/BICSI/fall2016/public/eBooth.aspx?Nav=false&BoothID=%@&EventID=%@&CoID=%@&Source=ExhibitorList", myExhibitors.boothId, myExhibitors.eventId, myExhibitors.coId];
+    NSString * myURL = [NSString stringWithFormat:@"http://s23.a2zinc.net/clients/BICSI/fall2016/Public/eBooth.aspx?IndexInList=6&FromPage=Exhibitors.aspx&ParentBoothID=&ListByBooth=true&BoothID=%@&Nav=False", myExhibitors.boothId];
     NSURL *fullUrl = [NSURL URLWithString:myURL];
     NSURLRequest *httpRequest = [NSURLRequest requestWithURL:fullUrl];
     [myWebView loadRequest:httpRequest];
@@ -157,7 +158,8 @@
     //NSString * myURL = [NSString stringWithFormat:@"%@", myExhibitors.url];
     //    NSURL *url = [NSURL URLWithString:myURL];
     //	[[UIApplication sharedApplication] openURL:url];
-    NSString * myURL = [NSString stringWithFormat:@"http://s23.a2zinc.net/clients/BICSI/canada2015/public/eBooth.aspx?Nav=false&BoothID=%@&EventID=%@&CoID=%@&Source=Floorplan", myExhibitors.boothId, myExhibitors.eventId, myExhibitors.coId];
+    //NSString * myURL = [NSString stringWithFormat:@"http://s23.a2zinc.net/clients/BICSI/fall2016/public/eBooth.aspx?Nav=false&BoothID=%@&EventID=%@&CoID=%@&Source=Floorplan", myExhibitors.boothId, myExhibitors.eventId, myExhibitors.coId];
+    NSString * myURL = [NSString stringWithFormat:@"http://s23.a2zinc.net/clients/BICSI/fall2016/Public/eBooth.aspx?IndexInList=6&FromPage=Exhibitors.aspx&ParentBoothID=&ListByBooth=true&BoothID=%@&Nav=False", myExhibitors.boothId];
     NSURL *URL = [NSURL URLWithString:myURL];
     SVWebViewController *webViewController = [[SVWebViewController alloc] initWithURL:URL];
     [self.navigationController pushViewController:webViewController animated:YES];
